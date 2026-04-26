@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f2f241;
+  --foreground: #8a8585;
+  margin: 0 auto;
+}
+
+/* =========================
+   FIX CONTAINER RESPONSIVE
+========================= */
+.container-size {
+  width: 100%;
+  max-width: 1100px;
+  /* giữ design desktop */
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  line-height: 30px;
+}
+
+/* =========================
+   BASE
+========================= */
+html {
+  scroll-behavior: smooth;
+  font-size: 20px;
+  /* FIX: tránh mobile phóng to */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  /* FIX: chống scroll ngang */
+}
+
+/* =========================
+   DARK MODE (giữ nguyên)
+========================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* =========================
+   REVEAL ANIMATION (GIỮ NGUYÊN)
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   BACKGROUND FIX (KHÔNG BỂ MOBILE)
+========================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: white;
+  z-index: -1;
+}
+
+/* =========================
+   FIX ABSTRACT RESPONSIVE
+========================= */
+.abstract {
+  width: 100%;
+  max-width: 850px;
+  /* giữ desktop design */
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+
+/* =========================
+   SECTION SPACING (GIỮ NGUYÊN STYLE)
+========================= */
+.sensor-platform,
+.methodology,
+.experiment,
+.related-links,
+.license,
+.citation {
+  margin-top: 80px;
+  font-size: 18px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  height: auto;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  background: #e6e6e69a;
+}
