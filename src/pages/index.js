@@ -7,7 +7,7 @@ import Citation from '@/components/Citation/Citation';
 import Intro from '@/components/Intro/Intro';
 import Abstract from '@/components/Abstract/Abstract';
 import Experiment from '@/components/Experiment/Experiment';
-import License from '@/components/License/License';
+import Acknowledgement from '@/components/Acknowledgement/License';
 import SensorPlatform from '@/components/SensorPlatform/SensorPlatform';
 import DatasetTabs from '@/components/Dataset/Dataset';
 import Methodology from '@/components/Methodology/Methodology';
@@ -59,7 +59,7 @@ export default function Home() {
       <HumanResult />
 
       <RelatedLink />
-      <License />
+      <Acknowledgement />
       <Citation />
       <Footer />
     </div>
