@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { datasets } from '@/data/datasets'
+import Fusion from "../Fusion/Fusion"
 
 const SensorPlatform = () => {
     const [activeTab, setActiveTab] = useState(1)
@@ -14,8 +15,12 @@ const SensorPlatform = () => {
 
 
     return (
-        <div className='sensor-platform container-size mt-12'>
+        <div className='sensor-platform container-size mt-12' id="sensor_platform">
             <h2 className='text-2xl text-black font-bold'>Sensor Platform</h2>
+
+            {/* Fusion */}
+            {/* <Fusion /> */}
+
             <h3 className='text-lg text-black font-bold mt-6 mb-16'>Experimental Setup</h3>
 
             {/* Tabs */}
@@ -102,7 +107,7 @@ const SensorPlatform = () => {
             </div>
 
             <div className="training-configuration">
-                <h3 className='text-lg text-black font-bold mt-4'>Training Configuration</h3>
+                <h3 className='text-lg text-black font-bold mt-4'>Visualization of the WiVi32-Count dataset</h3>
                 <img src="/PRoFENCH/image/Quality Restoration-Ultra HD-Multi.png" alt="training-configuration" className="mx-auto mt-8" />
                 <p className='text-center'>
                     Figure 7: Visualization of the WiVi32-Count dataset across eight classes, showing Wi-Fi CSI signals (top) paired with corresponding camera

@@ -2,12 +2,12 @@ import React from 'react'
 
 const Intro = () => {
     return (
-        <div className='intro container-size mt-18'>
+        <div className='intro container-size mt-18' id='intro'>
             <h2 className='text-2xl font-bold my-8 mt-18 text-center text-black'>Introduction</h2>
             <p>
                 Visualization of the Data of each modality and their corresponding estimations.
             </p>
-            <img src="/PRoFENCH/image/PRoFENCH.png" alt="PRoFENCH Framework" className="mx-auto mt-8" />
+            <img src="/PRoFENCH/image/PRoFENCH1.png" alt="PRoFENCH Framework" className="mx-auto mt-8" />
             <p className='text-center'>Figure 1: Architecture of the proposed <b>PRoFENCH</b> multimodal WiFi–Vision sensing framework.</p>
         </div>
     )
