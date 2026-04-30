@@ -7,11 +7,12 @@ import Citation from '@/components/Citation/Citation';
 import Intro from '@/components/Intro/Intro';
 import Abstract from '@/components/Abstract/Abstract';
 import Experiment from '@/components/Experiment/Experiment';
-import Acknowledgement from '@/components/Acknowledgement/License';
+import License from '@/components/License/License';
 import SensorPlatform from '@/components/SensorPlatform/SensorPlatform';
 import DatasetTabs from '@/components/Dataset/Dataset';
-import Methodology from '@/components/Methodology/Methodology';
+import Architect from '@/components/Architect/Architect';
 import HumanResult from '@/components/HumanResult/HumanResult';
+import Fusion from '@/components/Fusion/Fusion';
 
 export default function Home() {
   useEffect(() => {
@@ -43,25 +44,33 @@ export default function Home() {
       <Intro />
       <Abstract />
 
+      {/* Mục 1 */}
       <DatasetTabs />
 
 
+      {/* Mục 2 */}
+      <Fusion />
 
-      {/* Mục 1 */}
+      {/* Mục 3 - methodology*/}
+      <Architect />
 
-      {/* Mục 4 - methodology*/}
-      <Methodology />
-
-      {/* mục 5 */}
-      {/* <Experiment /> */}
+      {/* Mục 4 */}
       <SensorPlatform />
 
+      {/* Mục 5 */}
       <HumanResult />
 
+      {/* Mục 6 */}
       <RelatedLink />
-      <Acknowledgement />
+
+      {/* Mục 7 */}
+      <License />
+
+      {/* Mục 8 */}
       <Citation />
+
       <Footer />
+      {/* <Experiment /> */}
     </div>
   );
 }
