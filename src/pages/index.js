@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import RelatedLink from '@/components/RelatedLink/RelatedLink';
 import Citation from '@/components/Citation/Citation';
 import Intro from '@/components/Intro/Intro';
@@ -32,6 +32,26 @@ export default function Home() {
     reveals.forEach(r => observer.observe(r))
   }, [])
 
+
+  const Section = ({ children }) => {
+    const [show, setShow] = useState(false);
+    const ref = useRef();
+
+    useEffect(() => {
+      const obs = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) {
+          setShow(true);
+          obs.disconnect();
+        }
+      });
+
+      if (ref.current) obs.observe(ref.current);
+    }, []);
+
+    return <div ref={ref}>{show && children}</div>;
+  };
+
+
   return (
     <div className="pt-18 overflow-x-hidden">
       <Head>
@@ -41,36 +61,60 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Header />
-      <Intro />
-      <Abstract />
 
-      {/* Mục 1 */}
-      <DatasetTabs />
+      {/* Introduction */}
+      <Section>
+        <Intro />
+      </Section>
 
 
-      {/* Mục 2 */}
-      <Fusion />
+      {/* Abstract */}
+      <Section>
+        <Abstract />
+      </Section>
 
-      {/* Mục 3 - methodology*/}
-      <Architect />
+      {/* Mục 1 - Datasets */}
+      <Section>
+        <DatasetTabs />
+      </Section>
 
-      {/* Mục 4 */}
-      <SensorPlatform />
+      {/* Mục 2 - Fusion Strategy */}
+      <Section>
+        <Fusion />
+      </Section>
 
-      {/* Mục 5 */}
-      <HumanResult />
+      {/* Mục 3 - WiVi32-Fusion Architect */}
+      <Section>
+        <Architect />
+      </Section>
 
-      {/* Mục 6 */}
-      <RelatedLink />
+      {/* Mục 4 - Sensor Platform */}
+      <Section>
+        <SensorPlatform />
+      </Section>
+
+      {/* Mục 5 - We provide the visualization human counting in the frame level */}
+      <Section>
+        <HumanResult />
+      </Section>
+
+      {/* Mục 6 - Related Links */}
+      <Section>
+        <RelatedLink />
+      </Section>
 
       {/* Mục 7 */}
-      <License />
+      <Section>
+        <License />
+      </Section>
 
       {/* Mục 8 */}
-      <Citation />
+      <Section>
+        <Citation />
+      </Section>
 
+      {/* Footer */}
       <Footer />
-      {/* <Experiment /> */}
     </div>
   );
 }
