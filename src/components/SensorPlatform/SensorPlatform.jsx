@@ -14,13 +14,24 @@ const SensorPlatform = () => {
         setSelectedIndex(0)
     }, [activeTab])
 
+    useEffect(() => {
+        datasets.forEach((item) => {
+            [item.layout, item.expSetup].forEach((src) => {
+                if (!src) return
+
+                const img = new Image()
+                img.src = src
+            })
+        })
+    }, [])
+
     const figureMap = Object.fromEntries(
         figure.map(f => [f.id, f])
     );
 
 
     return (
-        <div className='sensor-platform container-size mt-12' id="sensor_platform">
+        <div className='sensor-platform container-size mt-12 scroll-mt-24' id="sensor_platform">
             <h2 className='text-2xl text-black font-bold'>Sensor Platform</h2>
 
             {/* Fusion */}
